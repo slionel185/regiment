@@ -9,7 +9,7 @@ export async function POST(req: Request) {
 
         email.emails.send({
             from: 'no-reply@titansoftware.dev',
-            to: ['slionel1850@gmail.com'],
+            to: ['slionel1850@gmail.com', 'romano@udel.edu'],
             subject: 'New Submission: CONTACT FORM',
             react: <ContactEmail {...body} />
         })

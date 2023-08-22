@@ -19,8 +19,8 @@ export default function ContactForm({ setDialog }: { setDialog: Dispatch<SetStat
 
         console.log(res)
 
-        //if(res.status === 200) return setDialog(false)
-        //form.setError('root', { message: 'An error occurred.' })
+        if(res.status === 200) return setDialog(false)
+        form.setError('root', { message: 'An error occurred.' })
     }
 
     return (
