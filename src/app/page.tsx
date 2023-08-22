@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 
 export default function HomePage() {
     return (
-        <div className='min-h-screen flex flex-col justify-center items-center'>
+        <div className='h-screen flex flex-col justify-center items-center'>
             <Card className='w-full px:4 border-none max-w-xl relative'>
                 <div className='absolute top-4 right-4'>
                     <RedirectButton to='/auth/login'>Login</RedirectButton>
