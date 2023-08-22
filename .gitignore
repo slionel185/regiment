@@ -14,7 +14,7 @@
 
 # production
 /build
-
+/emails
 # misc
 .DS_Store
 *.pem
@@ -32,3 +32,4 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+.react-email
