@@ -40,7 +40,7 @@ export default function RegisterForm() {
                     <FormItem>
                         <FormLabel>Username</FormLabel>
                         <FormControl>
-                            <Input className='w-full' placeholder='Username' {...field} />
+                            <Input className='w-full' autoCapitalize='false' placeholder='Username' {...field} />
                         </FormControl>
                     </FormItem>
                 )} />

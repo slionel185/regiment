@@ -1,5 +1,4 @@
 import type { AuthOptions } from 'next-auth'
-import type { Account } from '@prisma/client'
 
 import bcrpyt from 'bcrypt'
 
@@ -23,7 +22,7 @@ export const authOptions: AuthOptions = {
 
                 const user = await prisma.account.findUnique({
                     where: {
-                        username: credentials.username
+                        username: credentials.username.toLowerCase()
                     }
                 })
                 if(!user) return null
