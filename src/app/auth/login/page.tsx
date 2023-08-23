@@ -13,7 +13,7 @@ export default async function LoginPage() {
 
     return (
         <div className='flex flex-col min-h-screen justify-center items-center px-4'>
-            <Card className='w-full border-none sm:border-solid sm:w-[400px] relative'>
+            <Card className='w-full border-none sm:border-solid sm:w-[400px] relative shadow'>
                 <div className='absolute top-4 right-4'>
                     <RedirectButton size={'sm'} to='/'>Home</RedirectButton>
                 </div>
