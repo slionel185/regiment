@@ -12,7 +12,7 @@ export default async function HomePage() {
     if(session) redirect('/dashboard')
 
     return (
-        <div className='h-screen flex flex-col justify-center items-center'>
+        <div className='h-screen flex flex-col justify-center items-center px-4'>
             <Card className='w-full px:4 border-none max-w-xl relative shadow'>
                 <div className='absolute top-4 right-4'>
                     <RedirectButton to='/auth/login'>Login</RedirectButton>
