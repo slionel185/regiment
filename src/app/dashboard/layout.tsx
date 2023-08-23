@@ -7,7 +7,7 @@ export default function DashboardLayout({ children }: LayoutProps) {
     return (
         <section className='min-h-screen'>
             <Navbar />
-            <div className='min-h-screen'>
+            <div className='h-full'>
                 {children}
             </div>
             <Footer />
