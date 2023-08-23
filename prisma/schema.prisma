@@ -31,10 +31,11 @@ enum EmployeeType {
 
 model Account {
   id          String     @id @default(uuid())
-  name        String
   email       String     @unique
+  image       String?
   password    String
-  member_type MemberType
+  username    String     @unique
+  member_type MemberType @default(PROSPECT)
 
   email_verified Boolean? @default(false)
 

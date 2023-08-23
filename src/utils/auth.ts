@@ -1,6 +1,10 @@
 import type { AuthOptions } from 'next-auth'
+import type { Account } from '@prisma/client'
+
+import bcrpyt from 'bcrypt'
 
 import CredentialsProvider from 'next-auth/providers/credentials'
+import { prisma } from './prisma'
 
 export const authOptions: AuthOptions = {
     pages: {
@@ -17,9 +21,16 @@ export const authOptions: AuthOptions = {
             async authorize(credentials, req) {
                 if(!credentials?.username || !credentials?.password) return null
 
-                const user = { id: '1', username: credentials.username }
-                
-                if(user) return user
+                const user = await prisma.account.findUnique({
+                    where: {
+                        username: credentials.username
+                    }
+                })
+                if(!user) return null
+
+                const passwordMatch = await bcrpyt.compare(credentials.password, user.password)
+
+                if(passwordMatch) return user
                 return null
             },
         })

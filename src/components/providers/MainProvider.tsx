@@ -6,7 +6,7 @@ import ThemeProvider from '@/components/providers/ThemeProvider'
 export default function MainProvider({ children }: ProviderProps) {
     return (
         <AuthProvider>
-            <ThemeProvider attribute='class' defaultTheme='dark' enableSystem>
+            <ThemeProvider attribute='class' defaultTheme='light' enableSystem>
                 {children}
             </ThemeProvider>
         </AuthProvider>

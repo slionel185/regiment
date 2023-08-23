@@ -1,11 +1,19 @@
+import { redirect } from 'next/navigation'
+import { getServerSession } from 'next-auth'
+
+import { authOptions } from '@/utils/auth'
 import ContactModal from '@/components/modals/ContactModal'
 import RedirectButton from '@/components/nav/RedirectButton'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
 
-export default function HomePage() {
+export default async function HomePage() {
+    const session = await getServerSession(authOptions)
+
+    if(session) redirect('/dashboard')
+
     return (
         <div className='h-screen flex flex-col justify-center items-center'>
-            <Card className='w-full px:4 border-none max-w-xl relative'>
+            <Card className='w-full px:4 border-none max-w-xl relative shadow'>
                 <div className='absolute top-4 right-4'>
                     <RedirectButton to='/auth/login'>Login</RedirectButton>
                 </div>

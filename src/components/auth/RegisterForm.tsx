@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { RegisterFormSchema, RegisterFormType } from '@/types/auth/RegisterForm'
@@ -11,10 +12,16 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from '@/components/ui/form'
 
 export default function RegisterForm() {
+    const router = useRouter()
     const form = useForm<RegisterFormType>({ resolver: zodResolver(RegisterFormSchema) })
 
-    function onSubmit(values: RegisterFormType) {
-        console.log(values)
+    async function onSubmit(values: RegisterFormType) {
+        const res = await fetch('/api/account/register', {
+            method: 'POST',
+            body: JSON.stringify(values)
+        }).then(res => res.json())
+
+        if(res.status === 201) router.push('/auth/login')
     }
 
     return (
