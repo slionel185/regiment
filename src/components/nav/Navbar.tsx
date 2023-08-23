@@ -16,7 +16,7 @@ export default function Navbar() {
     const { setTheme, theme } = useTheme()
 
     return (
-        <div className='flex w-full justify-center items-center border-b h-[75px]'>
+        <div className='flex w-full justify-center items-center border-b h-[10vh]'>
             <div className='flex w-full max-w-7xl justify-between p-2 px-4 gap-4'>
                 <div className='sm:flex flex-col hidden'>
                     <h1 className='scroll-m-20 text-3xl font-extrabold tracking-tight'>Regiment</h1>
