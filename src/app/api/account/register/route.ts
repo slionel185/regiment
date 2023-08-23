@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 import { prisma } from '@/utils/prisma'
 
 export async function POST(req: Request) {
-    const body = await req.json()
+    const body: { email: string, username: string, password: string, confirmPassword: string } = await req.json()
 
     const exists = await prisma.account.findUnique({
         where: {
